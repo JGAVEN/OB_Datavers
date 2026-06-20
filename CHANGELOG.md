@@ -30,6 +30,12 @@ All notable changes to this project are documented here. Format follows
   and product-development signals; removed all em-dashes; budget set to TBD.
 - Renamed anonymization aliases repo-wide: `OBCO` → `WCO`, `OB_Vend` → `LCO`,
   so the whole repo matches the pitch.
+- Sixth pitch pass: updated the dashboard's blended-margin metric (39.4%, up from
+  38.2%); tightened and formalized the brief's two opening narrative paragraphs;
+  reframed the vendor blind spot ("the distributor is our primary customer; we
+  need a distinct view of the data to maximize our value"); added "sandbox access
+  to Claude Code" to the tooling ask; reflected the primary-customer point on the
+  deck.
 - Fifth pitch pass: replaced the deck's risk slide with a data-flow + governance
   slide (WCO sources → governed read-only access → OB_Datavers on Azure →
   dashboard and the win), with an identity/boundary band and a "proposed, aligned

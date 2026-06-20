@@ -154,15 +154,15 @@ const page2 = [
 
   h2("What’s missing: the signals to be the resource our sellers need"),
   new Paragraph({ spacing: { after: 40 }, children: [t(
-    "The Owned Brands team doesn’t currently receive the signals that identify sellers who need help winning deals they’d otherwise lose, or who are losing margin to competitive pressure or a lack of national-brand support. We can’t be the best version of the resource we’re meant to be without better visibility into the data.",
+    "The Owned Brands team does not receive the signals that would flag sellers at risk of losing a winnable deal, or accounts losing margin to competitive pressure or a lack of national-brand support. With real-time insight into sales activity, we can calibrate our efforts to help WCO sellers win and grow margin.",
     { size: 18 })] }),
   new Paragraph({ spacing: { after: 40 }, children: [t(
-    "We are WCO’s owned-brands vendor team, and our job is to call on WCO sellers and WCO customers. The better our data, the better we identify the signals that put us in the right place at the right time, and the more we lift win rate and margin organization-wide.",
+    "As WCO’s owned-brands vendor team, our mandate is to call on WCO sellers and customers. Better data sharpens the signals that put us in the right place at the right time, lifting win rate and margin across the organization.",
     { size: 18 })] }),
 
   h2("Why our own systems can’t see it: the vendor blind spot"),
   new Paragraph({ spacing: { after: 40 }, children: [t(
-    "Our internal systems serve the distributor operating model. Owned Brands operates as a vendor inside a distributor and needs the lens those systems weren’t built to provide. The WCO seller is effectively our customer, yet engagement with a WCO seller isn’t tracked in USD.",
+    "Our internal systems serve the distributor operating model. Owned Brands operates as a vendor inside a distributor, and the distributor is our primary customer. We need a distinct view of the data to maximize our value. The WCO seller is effectively our customer, yet engagement with a WCO seller is not tracked in USD.",
     { size: 18 })] }),
 
   h2("How it works: two tiers, one spine"),
@@ -200,7 +200,7 @@ const page2 = [
   bullet([t("Read-only data access: ", { size: 18, bold: true }), t("via governed datasets, certified Power BI, or the API layer (sales incl. margin/cost, open orders & backlog, quotes/bids, account/contact/SKU master, inventory). Defined user group: the Owned Brands sales team only. No access provided outside of OB.", { size: 18 })]),
   bullet([t("Azure environment: ", { size: 18, bold: true }), t("subscription/resource group under WCO governance; Entra ID app registration; Azure OpenAI in-tenant; Power BI workspace + certified-dataset read access.", { size: 18 })]),
   bullet([t("Governance liaisons: ", { size: 18, bold: true }), t("named contacts from Data Office, BI Governance, Cloud Engineering, and IT Security; confirmation of the access workflow and margin/cost classification.", { size: 18 })]),
-  bullet([t("Developer tooling & hardware: ", { size: 18, bold: true }), t("one MacBook Pro (or equivalent) as the primary dev workstation; standard dev licensing; incremental Azure consumption budget for the build phase, TBD with Cloud Engineering.", { size: 18 })]),
+  bullet([t("Developer tooling & hardware: ", { size: 18, bold: true }), t("one MacBook Pro (or equivalent) as the primary dev workstation; sandbox access to Claude Code; standard dev licensing; incremental Azure consumption budget for the build phase, TBD with Cloud Engineering.", { size: 18 })]),
   new Paragraph({ spacing: { before: 30 }, children: [t("Execution is solo: I build and operate the platform as the sole developer; no additional headcount requested.", { size: 16, italics: true, color: GREY })] }),
 ];
 

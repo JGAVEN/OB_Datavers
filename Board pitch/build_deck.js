@@ -63,7 +63,7 @@ s = p.addSlide(); s.background = { color: PAPER };
 kicker(s, "Who we are, and what’s missing");
 actionTitle(s, "We can’t see the signals that win deals and hold margin");
 const opp = [
-  ["◉", "We’re the vendor team", "The Owned Brands team is WCO’s owned-brands vendor team. Our job is to call on WCO sellers and select customers and help them win."],
+  ["◉", "We’re the vendor team", "WCO is our primary customer. The Owned Brands team calls on WCO sellers and select customers to help them win with owned brands."],
   ["⚑", "We fly blind", "We don’t see which sellers are about to lose a winnable deal, or where competitive pressure is eroding owned-brand margin."],
   ["▤", "We have no tools of our own", "WCO’s systems (CORE, USD) weren’t built for the vendor lens. OB-specific tools would lift win rate and margin org-wide."],
 ];
