@@ -1,7 +1,7 @@
 # Owned Brands Sales Intelligence Platform (OB_Datavers)
 
-A read-only, Azure-hosted internal application for the OBCO Owned Brands team. It
-consumes **governed** OBCO sales data and adds vendor-side analytics, activity
+A read-only, Azure-hosted internal application for the WCO Owned Brands team. It
+consumes **governed** WCO sales data and adds vendor-side analytics, activity
 tracking, and AI-assisted insight — without becoming a system of record.
 
 > **North-star value loop:** identify competitor sell-through → cross-reference to
@@ -22,8 +22,8 @@ systems discovery.
 | `.github/` | CI guardrails, templates, ownership. |
 
 ## Hard boundaries (non-negotiable)
-- **Read-only.** No write/update/delete to CORE, USD, or any OBCO system of record.
-- **No new system of record** for OBCO data; consume the governed layer only.
+- **Read-only.** No write/update/delete to CORE, USD, or any WCO system of record.
+- **No new system of record** for WCO data; consume the governed layer only.
 - **Stay inside the Microsoft / Azure boundary.** No data egress.
 - Owned Brands sellers and managers are the only users.
 

@@ -6,17 +6,17 @@ below, stop and flag it rather than proceeding.
 
 ## 1. What this repo is
 The **Owned Brands Sales Intelligence Platform** — a read-only, Azure-hosted
-internal app that consumes governed OBCO data and adds vendor-side analytics,
+internal app that consumes governed WCO data and adds vendor-side analytics,
 activity tracking, and AI insight for the Owned Brands team. It complements Power
-BI and is **not** a system of record for OBCO data.
+BI and is **not** a system of record for WCO data.
 
 North-star value loop: *competitor sell-through → owned-brand cross-reference →
 margin lift → rep converts it.* Every capability must serve this loop.
 
 ## 2. Hard boundaries (never cross; refuse if asked)
 1. **Read-only** at every source boundary — no write/update/delete to CORE, USD,
-   or any OBCO system of record; no direct production DB connectivity.
-2. **No new system of record** for OBCO data — we only own Owned Brands activity.
+   or any WCO system of record; no direct production DB connectivity.
+2. **No new system of record** for WCO data — we only own Owned Brands activity.
 3. **In-tenant only** — no data, secret, or dependency leaves the Microsoft /
    Azure boundary. No egress.
 4. **Least privilege** — scoped to the Owned Brands domain and defined user group.

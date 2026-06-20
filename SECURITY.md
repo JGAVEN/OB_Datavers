@@ -6,7 +6,7 @@ operates against governed enterprise systems.
 
 ## Core controls (must always hold)
 - **Read-only at every source boundary.** No write/update/delete to CORE, USD, or
-  any OBCO system of record. No direct production database connectivity.
+  any WCO system of record. No direct production database connectivity.
 - **Stay in-tenant.** No data, secret, or build dependency leaves the Microsoft /
   Azure boundary. No egress.
 - **Least privilege & default deny.** Access scoped to the Owned Brands data

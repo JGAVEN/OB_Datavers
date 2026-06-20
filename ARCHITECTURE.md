@@ -5,13 +5,13 @@ obeys*. Time-sensitive plans live in `Project planning/`; point-in-time decision
 live in `docs/adr/`.
 
 ## 1. System context
-OB_Datavers is a **downstream consumer** of OBCO's governed enterprise data,
+OB_Datavers is a **downstream consumer** of WCO's governed enterprise data,
 hosted on Azure inside the Microsoft tenant boundary. It maintains its own record
 of Owned Brands activity (opportunities, quotes, engagements) but never owns or
-mutates authoritative OBCO data.
+mutates authoritative WCO data.
 
 ```
-[Governed OBCO data]      (read-only: certified Power BI models /
+[Governed WCO data]      (read-only: certified Power BI models /
    CORE · USD  ──────►     enterprise API layer / governed datasets)
                                       │
                                       ▼
@@ -30,7 +30,7 @@ mutates authoritative OBCO data.
 ## 2. Architecture principles
 1. **Read-only at the boundary.** Authoritative data is consumed, never written.
    Every integration is a read. This is a security control, not just a design taste.
-2. **Single source of truth.** OBCO systems remain authoritative; we never
+2. **Single source of truth.** WCO systems remain authoritative; we never
    duplicate-as-master. Our store holds *only* Owned Brands activity.
 3. **Stay inside the tenant.** No data, secret, or dependency leaves the
    Microsoft / Azure boundary. No data egress, ever.

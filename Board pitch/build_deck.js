@@ -23,7 +23,7 @@ function actionTitle(s, text, color) {
 }
 function pageNum(s, n) {
   s.addText([{ text: "Owned Brands Sales Intelligence Platform", options: { color: GREY } },
-             { text: "   ·   Confidential — Internal   ·   " + n + " / 8", options: { color: GREY } }],
+             { text: "   ·   Confidential / Internal   ·   " + n + " / 8", options: { color: GREY } }],
     { x: M, y: H - 0.42, w: W - 2 * M, h: 0.3, fontFace: BODY, fontSize: 9, align: "left" });
 }
 
@@ -46,7 +46,7 @@ s.addText("WCO  ·  OWNED BRANDS  ·  DATAVERS BRIEF", { x: M, y: 0.7, w: W - 2 
 s.addText("The signals to help WCO sellers win deals\nand hold owned-brand margin.", {
   x: M, y: 1.9, w: W - 2 * M, h: 2.4, fontFace: HEAD, bold: true, fontSize: 40, color: "FFFFFF",
   lineSpacingMultiple: 1.04, align: "left" });
-s.addText("A read-only, vendor-side intelligence and activity platform inside WCO — it surfaces the signals and tracks our engagement, so the Owned Brands team shows up at the right time with the right pitch.", {
+s.addText("A read-only, vendor-side intelligence and activity platform inside WCO. It surfaces the signals and tracks our engagement, so the Owned Brands team shows up at the right time with the right pitch.", {
   x: M, y: 4.3, w: 11.0, h: 1.0, fontFace: BODY, fontSize: 17, color: "D6E8DD", align: "left" });
 // the loop motif
 s.addShape("roundRect", { x: M, y: 5.5, w: W - 2 * M, h: 0.78, rectRadius: 0.1,
@@ -58,19 +58,19 @@ s.addText([
   { text: "  →  ", options: { color: LIME, bold: true } },
   { text: "win & hold margin", options: { color: "FFFFFF" } },
   { text: "  →  ", options: { color: LIME, bold: true } },
-  { text: "owned brands grow", options: { color: "FFFFFF" } },
+  { text: "growth", options: { color: "FFFFFF" } },
 ], { x: M, y: 5.5, w: W - 2 * M, h: 0.78, align: "center", valign: "middle", fontFace: MONO, fontSize: 13 });
-s.addText("Jeff Goodman — Director, Sales, Owned Brands   ·   June 19, 2026   ·   Status: Discovery / prototype", {
+s.addText("Jeff Goodman   ·   Director, Sales, Owned Brands   ·   June 19, 2026   ·   Status: Discovery / prototype", {
   x: M, y: 6.7, w: W - 2 * M, h: 0.3, fontFace: BODY, fontSize: 11, color: "9DB6A8" });
 
 // =================== SLIDE 2 — OPPORTUNITY ===================
 s = p.addSlide(); s.background = { color: PAPER };
-kicker(s, "Who we are — and what’s missing");
+kicker(s, "Who we are, and what’s missing");
 actionTitle(s, "We can’t see the signals that win deals and hold margin");
 const opp = [
-  ["◉", "We’re the vendor team", "The Owned Brands team is WCO’s owned-brands vendor team — our job is to call on WCO sellers and select customers and help them win."],
+  ["◉", "We’re the vendor team", "The Owned Brands team is WCO’s owned-brands vendor team. Our job is to call on WCO sellers and select customers and help them win."],
   ["⚑", "We fly blind", "We don’t see which sellers are about to lose a winnable deal, or where competitive pressure is eroding owned-brand margin."],
-  ["▤", "It lives in spreadsheets", "WCO’s distributor systems were never built for the vendor lens, so the work — and the signal — scatters across disconnected files."],
+  ["▤", "We have no tools of our own", "WCO’s distributor systems weren’t built for the vendor lens. OB-specific tools would lift win rate and margin organization-wide."],
 ];
 opp.forEach((c, i) => {
   const x = M + i * ((W - 2 * M - 0.6) / 3 + 0.3);
@@ -91,30 +91,30 @@ actionTitle(s, "Our own systems are blind to the vendor lens");
 const colW = (W - 2 * M - 0.4) / 2;
 card(s, M, 2.35, colW, 3.0, CARD);
 card(s, M + colW + 0.4, 2.35, colW, 3.0, MIST);
-s.addText("Distributor lens — CORE & USD", { x: M + 0.3, y: 2.55, w: colW - 0.6, h: 0.4, fontFace: HEAD, bold: true, fontSize: 16, color: GREY });
+s.addText("Distributor lens: CORE & USD", { x: M + 0.3, y: 2.55, w: colW - 0.6, h: 0.4, fontFace: HEAD, bold: true, fontSize: 16, color: GREY });
 s.addText([
   { text: "Built for the distributor operating model", options: { bullet: { code: "2022" } } },
   { text: "Order, invoice, and channel transactions", options: { bullet: { code: "2022" } } },
   { text: "No view of brand sell-through or competitive conversion", options: { bullet: { code: "2022" } } },
   { text: "No vendor-side activity tracking", options: { bullet: { code: "2022" } } },
 ], { x: M + 0.3, y: 3.05, w: colW - 0.6, h: 2.1, fontFace: BODY, fontSize: 14, color: INK, lineSpacingMultiple: 1.15, paraSpaceAfter: 6 });
-s.addText("Vendor lens — what Owned Brands needs", { x: M + colW + 0.7, y: 2.55, w: colW - 0.6, h: 0.4, fontFace: HEAD, bold: true, fontSize: 16, color: GREEN });
+s.addText("Vendor lens: what Owned Brands needs", { x: M + colW + 0.7, y: 2.55, w: colW - 0.6, h: 0.4, fontFace: HEAD, bold: true, fontSize: 16, color: GREEN });
 s.addText([
   { text: "Competitor sell-through, brand by brand", options: { bullet: { code: "2022" } } },
   { text: "Margin performance on every line", options: { bullet: { code: "2022" } } },
   { text: "SKU cross-reference to owned-brand equivalents", options: { bullet: { code: "2022" } } },
-  { text: "Opportunities, quotes, and engagements tracked", options: { bullet: { code: "2022" } } },
+  { text: "Engagement with WCO sellers (our customer; not in USD)", options: { bullet: { code: "2022" } } },
 ], { x: M + colW + 0.7, y: 3.05, w: colW - 0.6, h: 2.1, fontFace: BODY, fontSize: 14, color: INK, lineSpacingMultiple: 1.15, paraSpaceAfter: 6 });
-s.addText("Without the vendor lens, the signal lives in disconnected spreadsheets — invisible to leadership and impossible to scale.", {
+s.addText("Without the vendor lens, the signal lives in disconnected spreadsheets, invisible to leadership and impossible to scale.", {
   x: M, y: 5.65, w: W - 2 * M, h: 0.6, fontFace: BODY, italic: true, fontSize: 15, color: GREEN });
 pageNum(s, 3);
 
 // =================== SLIDE 4 — THE ENGINE / LOOP ===================
 s = p.addSlide(); s.background = { color: PAPER };
-kicker(s, "The engine — our north star");
+kicker(s, "The engine, our north star");
 actionTitle(s, "One loop puts us in the right deal at the right time");
 const steps = [
-  ["1", "Surface", "Signal in the governed data — deal at risk or margin under pressure"],
+  ["1", "Surface", "Signal in the governed data: a deal at risk or margin under pressure"],
   ["2", "Reach", "The right WCO seller or customer, with the cross and the context"],
   ["3", "Win", "Help close the deal and hold owned-brand margin"],
   ["4", "Grow", "Owned brands grow; the engagement is tracked"],
@@ -129,20 +129,20 @@ steps.forEach((st, i) => {
   if (i < 3) s.addText("→", { x: x + sw, y: 2.6, w: 0.55, h: 2.5, align: "center", valign: "middle", fontFace: MONO, bold: true, fontSize: 26, color: LIME });
 });
 s.addText([
-  { text: "The SKU is the spine ", options: { bold: true, color: INK } },
-  { text: "— one detail view unifies sales, stock, opportunities, crosses, and activity. Two tiers run the model: the WCO seller channel (push) and WCO customers (pull).", options: { color: GREY } },
+  { text: "The SKU is the spine. ", options: { bold: true, color: INK } },
+  { text: "One detail view unifies sales, stock, opportunities, crosses, and activity. Two tiers run the model: the WCO seller channel (push) and WCO customers (pull).", options: { color: GREY } },
 ], { x: M, y: 5.55, w: W - 2 * M, h: 0.8, fontFace: BODY, fontSize: 15, lineSpacingMultiple: 1.1 });
 pageNum(s, 4);
 
 // =================== SLIDE 5 — CAPABILITIES ===================
 s = p.addSlide(); s.background = { color: PAPER };
 kicker(s, "What you get");
-actionTitle(s, "A vendor-side platform and CRM — already prototyped");
+actionTitle(s, "A vendor-side platform and CRM, already prototyped");
 const caps = [
-  ["⇄", "Cross database", "Competitive product → owned-brand part mapping; living, searchable."],
-  ["◎", "Signals + supply", "Where to show up — deals at risk, margin under pressure, stock signal."],
-  ["☷", "Vendor-lens CRM", "OB engagement with WCO sellers and customers — quotes, calls, demos."],
-  ["✉", "AI email-drop", "A note → structured records; datasheet cross-extraction."],
+  ["⇄", "Cross database", "Competitive product → owned-brand mapping. OB enablement, not org-wide access."],
+  ["◎", "Signals + supply", "Where to show up: deals at risk, margin under pressure, stock signal."],
+  ["☷", "Vendor-lens CRM", "OB-generated opportunities; engagement with WCO sellers, our customer (not in USD)."],
+  ["✉", "AI email-drop", "A note → records; opportunity-loss and product-development signals."],
   ["▣", "Leadership dashboard", "Natural-language query over the whole pipeline."],
   ["▤", "Inventory & forecast", "Stock overlay with pipeline-weighted demand."],
 ];
@@ -155,28 +155,29 @@ caps.forEach((c, i) => {
   s.addText(c[1], { x: x + 1.0, y: y + 0.22, w: gw - 1.15, h: 0.4, fontFace: HEAD, bold: true, fontSize: 15, color: INK });
   s.addText(c[2], { x: x + 1.0, y: y + 0.62, w: gw - 1.15, h: 0.8, fontFace: BODY, fontSize: 12.5, color: GREY, lineSpacingMultiple: 1.03 });
 });
-s.addText("A working two-persona prototype (Leadership + Sales Team) already exists — this is proven UX, not a concept.", {
+s.addText("A working two-persona prototype (Leadership + Sales Team) already exists: proven UX, not a concept.", {
   x: M, y: 6.25, w: W - 2 * M, h: 0.4, fontFace: BODY, italic: true, fontSize: 14, color: GREEN });
 pageNum(s, 5);
 
 // =================== SLIDE 6 — RISK HANDLED ===================
 s = p.addSlide(); s.background = { color: PAPER };
 kicker(s, "Risk & governance");
-actionTitle(s, "Read-only and in-tenant — zero risk to CORE or USD");
+actionTitle(s, "Read-only and in-tenant: zero risk to CORE or USD");
 card(s, M, 2.35, colW, 3.4, "FBECEC");
 s.addText("What we will NOT do", { x: M + 0.3, y: 2.55, w: colW - 0.6, h: 0.4, fontFace: HEAD, bold: true, fontSize: 16, color: "A6322B" });
 s.addText([
   { text: "No write / update / delete to CORE, USD, or any system of record", options: { bullet: { code: "2715" } } },
   { text: "No direct production-database connectivity", options: { bullet: { code: "2715" } } },
   { text: "No duplication or ownership of WCO data", options: { bullet: { code: "2715" } } },
+  { text: "No access outside the OB sales team", options: { bullet: { code: "2715" } } },
   { text: "No data egress outside the Microsoft / Azure boundary", options: { bullet: { code: "2715" } } },
-], { x: M + 0.3, y: 3.1, w: colW - 0.6, h: 2.4, fontFace: BODY, fontSize: 14, color: INK, lineSpacingMultiple: 1.15, paraSpaceAfter: 8 });
+], { x: M + 0.3, y: 3.05, w: colW - 0.6, h: 2.5, fontFace: BODY, fontSize: 14, color: INK, lineSpacingMultiple: 1.12, paraSpaceAfter: 6 });
 card(s, M + colW + 0.4, 2.35, colW, 3.4, MIST);
 s.addText("How it’s governed", { x: M + colW + 0.7, y: 2.55, w: colW - 0.6, h: 0.4, fontFace: HEAD, bold: true, fontSize: 16, color: GREEN });
 s.addText([
   { text: "Azure-native: App Service / Functions + isolated Azure SQL", options: { bullet: { code: "2713" } } },
   { text: "Entra ID SSO, application RBAC, territory row-level security", options: { bullet: { code: "2713" } } },
-  { text: "Embedded certified Power BI — no dataset duplication", options: { bullet: { code: "2713" } } },
+  { text: "Embedded certified Power BI, no dataset duplication", options: { bullet: { code: "2713" } } },
   { text: "Azure OpenAI in-tenant; margin/cost handled as Confidential", options: { bullet: { code: "2713" } } },
 ], { x: M + colW + 0.7, y: 3.1, w: colW - 0.6, h: 2.4, fontFace: BODY, fontSize: 14, color: INK, lineSpacingMultiple: 1.15, paraSpaceAfter: 8 });
 s.addText("This complements Power BI and introduces no new system of record for WCO data.", {
@@ -190,7 +191,7 @@ actionTitle(s, "A phased build I can execute solo");
 const ph = [
   ["0", "Now", "Scoping, prototype, access one-pager, systems discovery"],
   ["1", "Access", "Secure read-only approval; confirm mechanism with Data Office"],
-  ["2", "Build", "Azure production — data layer, app DB, identity, Power BI"],
+  ["2", "Build", "Azure production: data layer, app DB, identity, Power BI"],
   ["3", "AI", "Email-drop, datasheet crosses, natural-language query"],
   ["4", "Rollout", "Team adoption, education & sales-plan outputs"],
 ];
@@ -213,9 +214,9 @@ s.addText("THE ASK", { x: M, y: 0.55, w: W - 2 * M, h: 0.35, fontFace: MONO, fon
 s.addText("Approve read-only access, an Azure environment, and governance liaisons", {
   x: M, y: 0.95, w: W - 2 * M, h: 1.0, fontFace: HEAD, bold: true, fontSize: 26, color: "FFFFFF", lineSpacingMultiple: 1.0 });
 const asks = [
-  ["1", "Read-only data access", "Governed WCO sales data incl. margin/cost — via certified datasets, Power BI, or the API layer. Defined user group: the Owned Brands sales team."],
+  ["1", "Read-only data access", "Governed WCO sales data incl. margin/cost, via certified datasets, Power BI, or the API layer. User group: the Owned Brands sales team only, no access outside OB."],
   ["2", "Azure build environment", "Subscription / resource group under WCO governance, Entra ID app registration, Azure OpenAI in-tenant, and a Power BI workspace with certified-dataset read access."],
-  ["3", "Governance liaisons", "Named contacts from Data Office, BI Governance, Cloud Engineering, and IT Security — plus confirmation of the access-request workflow and margin/cost classification."],
+  ["3", "Governance liaisons", "Named contacts from Data Office, BI Governance, Cloud Engineering, and IT Security, plus confirmation of the access-request workflow and margin/cost classification."],
 ];
 asks.forEach((a, i) => {
   const y = 2.25 + i * 1.25;
@@ -226,9 +227,9 @@ asks.forEach((a, i) => {
 });
 s.addText([
   { text: "Not requested: ", options: { bold: true, color: LIME } },
-  { text: "writes to CORE/USD, direct DB connectivity, data duplication, or any egress.", options: { color: "B9D2C5" } },
+  { text: "writes to CORE/USD, direct DB connectivity, data duplication, access outside OB, or any egress.", options: { color: "B9D2C5" } },
 ], { x: M, y: 6.15, w: W - 2 * M, h: 0.4, fontFace: BODY, fontSize: 13 });
-s.addText("Approve these and the Owned Brands team can finally see the signals — and act on them.", {
+s.addText("Approve these and the Owned Brands team can finally see the signals and act on them.", {
   x: M, y: 6.6, w: W - 2 * M, h: 0.5, fontFace: HEAD, bold: true, italic: true, fontSize: 15, color: "FFFFFF" });
 
 const out = path.join(__dirname, "Owned_Brands_Board_Deck.pptx");

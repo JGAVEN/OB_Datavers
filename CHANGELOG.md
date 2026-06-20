@@ -23,4 +23,10 @@ All notable changes to this project are documented here. Format follows
   competitor sell-through for margin" to "give the Owned Brands team the data
   signals to help WCO sellers win deals and hold margin." Clarified that platform
   users are the OB sales team, their call targets are WCO sellers + select WCO
-  customers, and the build is solo. Pitch uses the `WCO` / `LCO` aliases.
+  customers, and the build is solo.
+- Second pitch pass: positive "stronger signals" framing; org-wide win-rate/margin
+  payoff; OB-only access stated explicitly (no org-wide access); elevated the "the
+  WCO seller is our customer, not tracked in USD" insight; added opportunity-loss
+  and product-development signals; removed all em-dashes; budget set to TBD.
+- Renamed anonymization aliases repo-wide: `OBCO` → `WCO`, `OB_Vend` → `LCO`,
+  so the whole repo matches the pitch.

@@ -2,18 +2,18 @@
 ## Project Brief & Decision Log
 
 **Status:** Discovery / prototype · *Best-case design pending data-access confirmation*
-**Owner:** Director, OB_Vend & OBCO Owned Brands Sales
+**Owner:** Director, LCO & WCO Owned Brands Sales
 **Last updated:** June 19, 2026
 
 ---
 
 ## 1. Purpose
 
-A parallel, vendor-side sales intelligence and CRM platform for the Owned Brands team, hosted inside OBCO. It reads (read-only) from governed OBCO sales data and maintains its own record of Owned Brands activity, with the central goal of converting competitor sell-through into higher-margin owned-brand revenue.
+A parallel, vendor-side sales intelligence and CRM platform for the Owned Brands team, hosted inside WCO. It reads (read-only) from governed WCO sales data and maintains its own record of Owned Brands activity, with the central goal of converting competitor sell-through into higher-margin owned-brand revenue.
 
 ## 2. Problem & rationale
 
-OBCO's core systems (CORE, USD) are built for the **distributor** operating model. The Owned Brands team operates as a **vendor** inside OBCO and lacks vendor-side visibility — sell-through, competitive conversion, margin — and the activity tracking the distributor systems were never designed to capture. Today this work lives in disconnected spreadsheets.
+WCO's core systems (CORE, USD) are built for the **distributor** operating model. The Owned Brands team operates as a **vendor** inside WCO and lacks vendor-side visibility — sell-through, competitive conversion, margin — and the activity tracking the distributor systems were never designed to capture. Today this work lives in disconnected spreadsheets.
 
 ## 3. The value loop (north star)
 
@@ -25,7 +25,7 @@ Every capability serves this loop.
 
 **In scope**
 - Historical sales catalog + current sales, quote, and SKU-level opportunity tracking
-- Engagement tracking — call planning & logs, visits, demos, training, hardware/eval demos — for **both** parties (OBCO sellers and OBCO customers)
+- Engagement tracking — call planning & logs, visits, demos, training, hardware/eval demos — for **both** parties (WCO sellers and WCO customers)
 - SKU cross-reference engine (competitor → owned brand), living and searchable
 - Email-drop AI ingestion (rep emails a note → parsed to structured records)
 - Leadership dashboard with natural-language query
@@ -33,9 +33,9 @@ Every capability serves this loop.
 - Education / sales plan outputs (target lists, playbooks, training)
 
 **Out of scope**
-- Any write/update to CORE, USD, or any OBCO system of record
-- Duplication or ownership of authoritative OBCO data
-- OBCO sellers as platform *users* (they are tracked subjects, not logins)
+- Any write/update to CORE, USD, or any WCO system of record
+- Duplication or ownership of authoritative WCO data
+- WCO sellers as platform *users* (they are tracked subjects, not logins)
 - Minuteman (explicitly removed)
 - Data egress outside the Microsoft / Azure boundary
 
@@ -43,23 +43,23 @@ Every capability serves this loop.
 
 | # | Decision | Rationale |
 |---|----------|-----------|
-| D1 | Build a parallel platform, not an extension of OBCO's core | Core serves the distributor lens; Owned Brands needs the vendor lens it can't provide |
-| D2 | Read-only toward all OBCO source systems | Minimizes risk to OBCO infrastructure; eases approval |
-| D3 | Platform *is* the system of record for its own net-new data (crosses, opportunities, quotes-in-progress, activities, email intelligence), in an isolated app DB | That data exists nowhere in OBCO; required for CRM function; isolated = no source-system risk |
-| D4 | Two-tier model: OBCO sellers (channel / PRM) + OBCO customers (demand / CRM) | Owned-brand selling runs through the channel and into the end customer |
-| D5 | Customer scope = **all** OBCO customers, not just OB_Vend AV | Any OBCO customer buying competitor product is a conversion target |
+| D1 | Build a parallel platform, not an extension of WCO's core | Core serves the distributor lens; Owned Brands needs the vendor lens it can't provide |
+| D2 | Read-only toward all WCO source systems | Minimizes risk to WCO infrastructure; eases approval |
+| D3 | Platform *is* the system of record for its own net-new data (crosses, opportunities, quotes-in-progress, activities, email intelligence), in an isolated app DB | That data exists nowhere in WCO; required for CRM function; isolated = no source-system risk |
+| D4 | Two-tier model: WCO sellers (channel / PRM) + WCO customers (demand / CRM) | Owned-brand selling runs through the channel and into the end customer |
+| D5 | Customer scope = **all** WCO customers, not just LCO AV | Any WCO customer buying competitor product is a conversion target |
 | D6 | Users = Owned Brands sellers and managers only | Contains identity/scale; defuses broad margin-exposure concern |
 | D7 | Margin/cost is phase 0 and visible to all users, gated by RBAC + territory RLS | Margin uplift is the team's value; user group is small and internal |
 | D8 | SKU is the spine — one detail view unifies sales, stock, opportunities, crosses, activity | Prevents siloed dashboards; everything drills into the SKU |
 | D9 | Forecast = baseline demand + probability-weighted pipeline | Ties inventory directly to the conversion engine; surfaces a supply signal to reps |
 | D10 | Reconcile multiple historical datasets into one governed demand series per SKU | Trust + a clean artifact to hand the Data Office |
-| D11 | Azure-native architecture, Entra ID SSO + RBAC + RLS, embedded certified Power BI, Azure OpenAI in-tenant | Confirmed alignment with OBCO's documented standards |
+| D11 | Azure-native architecture, Entra ID SSO + RBAC + RLS, embedded certified Power BI, Azure OpenAI in-tenant | Confirmed alignment with WCO's documented standards |
 | D12 | Build path: prototype in Claude (HTML) → port to Azure production | Prove model/UX cheaply; production lives under governance |
 | D13 | Visual identity: green accent, mono part numbers, conversion loop as signature | Green = margin/owned-brand win; reinforces the north star |
 
 ## 6. Governing assumption & constraints
 
-> **This is a best-case end state. The entire design is contingent on data access not yet secured. The platform will be built to what is achievable from OBCO systems; every capability remains a target, not a commitment, until access is confirmed with the Data Office.**
+> **This is a best-case end state. The entire design is contingent on data access not yet secured. The platform will be built to what is achievable from WCO systems; every capability remains a target, not a commitment, until access is confirmed with the Data Office.**
 
 - Governed-dataset / API-layer consumption is preferred over direct CORE/USD access.
 - Refresh assumed nightly batch, with a path to near-real-time if exposed.

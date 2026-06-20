@@ -1,4 +1,4 @@
-# Copilot Query — OBCO Systems & Capabilities Discovery
+# Copilot Query — WCO Systems & Capabilities Discovery
 
 **Purpose:** Scoping a read-only, internal analytics and tracking platform for the Owned Brands team. I need to understand our systems and capabilities so I can design the integration architecture and a read-only data-access request.
 
