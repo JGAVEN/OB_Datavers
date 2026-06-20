@@ -3,7 +3,7 @@
 Thumbs.db
 *.swp
 
-# Secrets / credentials — never commit
+# Secrets / credentials (never commit)
 .env
 .env.*
 *.pem
@@ -27,8 +27,12 @@ __pycache__/
 .vscode/
 *.log
 
-# Data — never commit real/exported data
+# Data (never commit real/exported data)
 *.csv
 *.parquet
 /data/
 /exports/
+
+# Local-only real-name presentation build (NEVER commit real names)
+Board pitch/_present/
+Board pitch/build_realnames.sh
