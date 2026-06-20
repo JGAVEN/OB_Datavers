@@ -3,7 +3,7 @@ const path = require("path");
 const {
   Document, Packer, Paragraph, TextRun, Table, TableRow, TableCell,
   AlignmentType, LevelFormat, HeadingLevel, BorderStyle, WidthType,
-  ShadingType, PageBreak, Footer, PageNumber,
+  ShadingType, PageBreak, Footer, PageNumber, ImageRun,
 } = require("docx");
 
 // ---- brand ----
@@ -107,30 +107,41 @@ const page1 = [
   kicker("Who we are, and what’s missing"),
   bullet([t("The Owned Brands (OB) sales team is WCO’s owned-brands ", { size: 18 }), t("vendor", { size: 18, italics: true }), t(" team. Our job is to call on WCO sellers and select WCO customers and help them win.", { size: 18 })]),
   bullet([t("Stronger signals would put us in the right place at the right time: which sellers are about to lose a deal they could win, and where competitive pressure or missing national-brand support is eroding margin.", { size: 18 })]),
-  bullet([t("WCO’s systems (CORE, our ERP; USD, our CRM) are built for the distributor, not the vendor lens. Tools built specifically for OB will lift win rate and margin organization-wide.", { size: 18 })]),
+  bullet([t("WCO’s systems (CORE, USD) are built for the distributor, not the vendor lens. Tools built specifically for OB will lift win rate and margin organization-wide.", { size: 18 })]),
 
   kicker("The value loop, our north star"),
-  loopGraphic(["Surface the signal", "Reach the right WCO seller / customer", "Win the deal & hold margin", "Growth"]),
-  new Paragraph({ spacing: { before: 36, after: 0 }, children: [t("A read-only, vendor-side intelligence and activity platform inside WCO surfaces the signals and tracks our engagement, so we show up at the right time with the right pitch.", { size: 18 })] }),
+  loopGraphic(["Surface the signal", "Reach the right WCO seller / customer, at the right time", "Win the deal & hold margin", "Growth"]),
 
   kicker("In practice"),
   callout("THE DEAL", [
-    t("A WCO seller is bidding a security project (a national-brand camera line, with the rest of the bill of materials still open) and holds registered project pricing on the cameras. A competing distributor bids the same cameras but pairs them with its own-brand cable; the extra margin on that cable lets it beat our total price, registered pricing and all. ", { size: 17 }),
-    t("The platform flags this seller, and the OB team helps them specify Owned Brands into the bill of materials, lifting margin and sharpening total price so WCO keeps the deal.", { size: 17, bold: true, color: GREEN }),
+    t("A WCO seller is bidding a security project (national-brand cameras, the rest of the BoM still open) with registered project pricing. A competing distributor bids the same cameras but pairs them with its own-brand cable; the extra cable margin lets it beat our total price. ", { size: 16 }),
+    t("The platform flags this seller, and OB helps specify Owned Brands into the BoM, lifting margin and total price so WCO keeps the deal.", { size: 16, bold: true, color: GREEN }),
   ]),
 
   kicker("Why now"),
   callout("MOMENTUM", [
-    t("The Owned Brands team has just integrated the LCO sales organization, adding capability and aligning structure to its mandate inside WCO. The team is built to execute; the missing piece is the toolset that lets it act. Equip it now and that structural investment compounds; wait, and winnable deals like the one above keep slipping. ", { size: 17 }),
-    t("First-90-day target: identify and support 30 opportunities WCO would otherwise have lost.", { size: 17, bold: true, color: GREEN }),
+    t("We just integrated the LCO sales organization, adding capability and aligning structure to OB’s mandate inside WCO. The team is built to execute; the missing piece is the toolset that lets it see around corners that are blind today. ", { size: 16 }),
+    t("First-90-day target: identify and support 30 opportunities WCO would otherwise have lost.", { size: 16, bold: true, color: GREEN }),
   ]),
 
-  new Paragraph({ spacing: { before: 90, after: 0 },
+  new Paragraph({ spacing: { before: 70, after: 0 },
     shading: { fill: GREEN, type: ShadingType.CLEAR },
     children: [
       t("THE ASK   ", { bold: true, size: 18, color: "FFFFFF" }),
-      t("Approve read-only access to governed WCO sales data (incl. margin/cost) for the Owned Brands sales team only, with no access outside OB. Provision the Azure build environment and assign governance liaisons. Tooling and budget detail overleaf.", { size: 18, color: "FFFFFF" }),
+      t("Approve read-only access to governed WCO sales data (incl. margin/cost) for the Owned Brands sales team only. No access provided outside of OB. Provision the Azure build environment and assign governance liaisons. Tooling and budget detail overleaf.", { size: 18, color: "FFFFFF" }),
     ] }),
+
+  new Paragraph({ spacing: { before: 70, after: 30 }, children: [
+    t("ALREADY BUILT", { bold: true, size: 16, color: GREEN, characterSpacing: 18 }),
+    t("    Working two-persona wireframe (Leadership + Sales Team); sample data only. Proven UX, not a concept.", { size: 14, italics: true, color: GREY }),
+  ] }),
+  new Paragraph({ spacing: { before: 0, after: 0 }, alignment: AlignmentType.CENTER,
+    border: { top: { style: BorderStyle.SINGLE, size: 4, color: RULE, space: 2 }, bottom: { style: BorderStyle.SINGLE, size: 4, color: RULE, space: 2 }, left: { style: BorderStyle.SINGLE, size: 4, color: RULE, space: 2 }, right: { style: BorderStyle.SINGLE, size: 4, color: RULE, space: 2 } },
+    children: [
+    new ImageRun({ type: "png", data: fs.readFileSync(path.join(__dirname, "prototype_shot.png")),
+      transformation: { width: 500, height: 347 },
+      altText: { title: "Leadership dashboard", name: "dashboard", description: "Working wireframe of the Owned Brands leadership dashboard" } }),
+  ] }),
 ];
 
 // =================== PAGE 2 ===================
@@ -186,7 +197,7 @@ const page2 = [
   ], 2600, 6760),
 
   h2("The Ask"),
-  bullet([t("Read-only data access: ", { size: 18, bold: true }), t("via governed datasets, certified Power BI, or the API layer (sales incl. margin/cost, open orders & backlog, quotes/bids, account/contact/SKU master, inventory). Defined user group: the Owned Brands sales team only, with no access outside OB.", { size: 18 })]),
+  bullet([t("Read-only data access: ", { size: 18, bold: true }), t("via governed datasets, certified Power BI, or the API layer (sales incl. margin/cost, open orders & backlog, quotes/bids, account/contact/SKU master, inventory). Defined user group: the Owned Brands sales team only. No access provided outside of OB.", { size: 18 })]),
   bullet([t("Azure environment: ", { size: 18, bold: true }), t("subscription/resource group under WCO governance; Entra ID app registration; Azure OpenAI in-tenant; Power BI workspace + certified-dataset read access.", { size: 18 })]),
   bullet([t("Governance liaisons: ", { size: 18, bold: true }), t("named contacts from Data Office, BI Governance, Cloud Engineering, and IT Security; confirmation of the access workflow and margin/cost classification.", { size: 18 })]),
   bullet([t("Developer tooling & hardware: ", { size: 18, bold: true }), t("one MacBook Pro (or equivalent) as the primary dev workstation; standard dev licensing; incremental Azure consumption budget for the build phase, TBD with Cloud Engineering.", { size: 18 })]),

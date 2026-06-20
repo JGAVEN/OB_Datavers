@@ -30,6 +30,10 @@ All notable changes to this project are documented here. Format follows
   and product-development signals; removed all em-dashes; budget set to TBD.
 - Renamed anonymization aliases repo-wide: `OBCO` → `WCO`, `OB_Vend` → `LCO`,
   so the whole repo matches the pitch.
+- Fourth pitch pass: added the leadership-dashboard screenshot to the brief's
+  one-pager; per review, dropped the ERP/CRM expansion, added "at the right time"
+  to the value loop, reworded why-now ("see around corners that are blind today"),
+  and tightened the access ask ("No access provided outside of OB").
 - Third pitch pass: added a concrete worked example (a security-bid deal), a
   "why now" beat (LCO integration momentum) with a first-90-day KPI of 30
   saved opportunities, a value-loop graphic on the brief, and a prototype

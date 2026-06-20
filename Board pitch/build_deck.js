@@ -65,7 +65,7 @@ actionTitle(s, "We can’t see the signals that win deals and hold margin");
 const opp = [
   ["◉", "We’re the vendor team", "The Owned Brands team is WCO’s owned-brands vendor team. Our job is to call on WCO sellers and select customers and help them win."],
   ["⚑", "We fly blind", "We don’t see which sellers are about to lose a winnable deal, or where competitive pressure is eroding owned-brand margin."],
-  ["▤", "We have no tools of our own", "WCO’s systems (CORE, our ERP; USD, our CRM) weren’t built for the vendor lens. OB-specific tools would lift win rate and margin org-wide."],
+  ["▤", "We have no tools of our own", "WCO’s systems (CORE, USD) weren’t built for the vendor lens. OB-specific tools would lift win rate and margin org-wide."],
 ];
 opp.forEach((c, i) => {
   const x = M + i * ((W - 2 * M - 0.6) / 3 + 0.3);
@@ -106,7 +106,7 @@ kicker(s, "The engine, our north star");
 actionTitle(s, "One loop puts us in the right deal at the right time");
 const steps = [
   ["1", "Surface", "Signal in the governed data: a deal at risk or margin under pressure"],
-  ["2", "Reach", "The right WCO seller or customer, with the cross and the context"],
+  ["2", "Reach", "The right WCO seller or customer, at the right time, with the cross and context"],
   ["3", "Win", "Help close the deal and hold owned-brand margin"],
   ["4", "Grow", "Owned brands grow; the engagement is tracked"],
 ];
@@ -180,7 +180,7 @@ actionTitle(s, "The team is built to execute. The tool is the missing piece.");
 const leftW = 7.0;
 s.addText([
   { text: "We just integrated the LCO sales organization", options: { bold: true, color: INK } },
-  { text: ", adding capability and aligning structure to the Owned Brands mandate inside WCO. The structure is in place; the tooling isn’t.", options: { color: INK } },
+  { text: ", adding capability and aligning structure to the Owned Brands mandate inside WCO. The structure is in place; the missing piece is the toolset that lets it see around corners that are blind today.", options: { color: INK } },
 ], { x: M, y: 2.5, w: leftW, h: 1.2, fontFace: BODY, fontSize: 17, lineSpacingMultiple: 1.15 });
 s.addText("Equip the team now and that structural investment compounds. Wait, and winnable deals like the one we just walked through keep slipping, quietly.", {
   x: M, y: 3.95, w: leftW, h: 1.4, fontFace: BODY, fontSize: 17, color: GREY, lineSpacingMultiple: 1.15 });
@@ -248,7 +248,7 @@ s.addText("THE ASK", { x: M, y: 0.55, w: W - 2 * M, h: 0.35, fontFace: MONO, fon
 s.addText("Approve read-only access, an Azure environment, and governance liaisons", {
   x: M, y: 0.95, w: W - 2 * M, h: 1.0, fontFace: HEAD, bold: true, fontSize: 26, color: "FFFFFF", lineSpacingMultiple: 1.0 });
 const asks = [
-  ["1", "Read-only data access", "Governed WCO sales data incl. margin/cost, via certified datasets, Power BI, or the API layer. User group: the Owned Brands sales team only, no access outside OB."],
+  ["1", "Read-only data access", "Governed WCO sales data incl. margin/cost, via certified datasets, Power BI, or the API layer. User group: the Owned Brands sales team only. No access provided outside of OB."],
   ["2", "Azure build environment", "Subscription / resource group under WCO governance, Entra ID app registration, Azure OpenAI in-tenant, and a Power BI workspace with certified-dataset read access."],
   ["3", "Governance liaisons", "Named contacts from Data Office, BI Governance, Cloud Engineering, and IT Security, plus confirmation of the access-request workflow and margin/cost classification."],
 ];
