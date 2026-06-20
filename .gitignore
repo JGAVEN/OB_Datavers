@@ -1,6 +1,34 @@
-# macOS
+# macOS / OS noise
 .DS_Store
-
-# Editor / OS noise
-*.swp
 Thumbs.db
+*.swp
+
+# Secrets / credentials — never commit
+.env
+.env.*
+*.pem
+*.key
+*.pfx
+*.p12
+secrets.*
+**/local.settings.json
+.azure/
+
+# Build / dependency output
+node_modules/
+dist/
+build/
+.venv/
+__pycache__/
+*.pyc
+
+# Editor / tooling
+.idea/
+.vscode/
+*.log
+
+# Data — never commit real/exported data
+*.csv
+*.parquet
+/data/
+/exports/

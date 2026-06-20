@@ -1,0 +1,12 @@
+# Baseline secret-scan config. Run with the gitleaks CLI (vet/pin before adopting).
+title = "OB_Datavers gitleaks config"
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Non-secret paths"
+paths = [
+  '''Project planning/.*''',
+  '''docs/.*''',
+  '''\.claude/skills/.*''',
+]

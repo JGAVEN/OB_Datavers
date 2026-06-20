@@ -1,0 +1,29 @@
+name: guardrails
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+permissions:
+  contents: read
+jobs:
+  repo-guardrails:
+    runs-on: ubuntu-latest
+    steps:
+      # Pinned to a commit SHA for supply-chain safety (actions/checkout v4.1.7)
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332
+
+      - name: Skills must remain Markdown-only
+        run: |
+          offenders="$(find .claude/skills -type f ! -name '*.md' 2>/dev/null || true)"
+          if [ -n "$offenders" ]; then
+            echo "::error::Non-Markdown files found under .claude/skills:"; echo "$offenders"; exit 1
+          fi
+          echo "OK: skills are Markdown-only."
+
+      - name: Block obvious committed secrets
+        run: |
+          if grep -rEInq "BEGIN (RSA|OPENSSH|PRIVATE) KEY|AKIA[0-9A-Z]{16}|xox[baprs]-[0-9A-Za-z-]+" \
+             --exclude-dir=.git .; then
+            echo "::error::Potential secret pattern detected. Remove and rotate."; exit 1
+          fi
+          echo "OK: no obvious secret patterns."

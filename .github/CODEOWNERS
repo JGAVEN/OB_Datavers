@@ -1,0 +1,9 @@
+# Default owner for everything
+*                       @JGAVEN
+
+# Security, data boundaries, and architecture require owner review
+/SECURITY.md            @JGAVEN
+/ARCHITECTURE.md        @JGAVEN
+/docs/adr/              @JGAVEN
+/.github/               @JGAVEN
+/.claude/               @JGAVEN
