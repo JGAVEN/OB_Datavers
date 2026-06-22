@@ -516,7 +516,7 @@
 
       <div class="panel">
         <div class="head">
-          <h3><span class="mono" style="color:var(--copper)">⇄</span> Conversion value loop</h3>
+          <h3><span class="mono" style="color:var(--copper)">→</span> Value conversion flow</h3>
           <span class="hint">competitor sell-through → owned-brand revenue</span>
         </div>
         <div class="body tight">
@@ -550,7 +550,7 @@
       </div>
 
       <div class="grid g-2">
-        <div class="panel" style="margin:0">
+        <div class="panel" id="lead-pipeline" style="margin:0">
           <div class="head"><h3>Pipeline by owned brand</h3><span class="hint">open opportunity value</span></div>
           <div class="body">
             <div class="rows">
@@ -712,7 +712,7 @@
         <div class="kpi"><div class="k-lbl"><span class="k-dot"></span>Pipeline demand · 90d</div><div class="k-val">$0.91M</div><div class="k-sub">probability-weighted from opps</div></div>
       </div>
 
-      <div class="panel">
+      <div class="panel" id="invhub">
         <div class="head">
           <h3><span class="mono" style="color:var(--copper)">▦</span> LIB-AV-HDB70 · demand vs. supply</h3>
           <div style="display:flex;gap:10px;align-items:center">
@@ -855,18 +855,18 @@
 
       <div class="grid g-2">
         <div>
-          <div class="panel" style="margin:0 0 14px">
+          <div class="panel" id="myday-plan" style="margin:0 0 14px">
             <div class="head"><h3>Today's plan</h3><span class="hint">4 stops</span></div>
             <div class="body">
               <div class="plan">
-                <div class="pitem"><span class="ptime">9:30</span><div class="pbody"><b>Call · Apex AV Integration</b><span>Follow up on LIB-C6A cross quote · $142K in play</span></div><span class="badge cus">Customer</span></div>
+                <div class="pitem"><span class="ptime">9:30</span><div class="pbody"><b>Call · R. Friedman</b><span>WCO seller · Apex AV cross quote, $142K in play</span></div><span class="badge cool">Seller</span></div>
                 <div class="pitem"><span class="ptime">11:00</span><div class="pbody"><b>Visit · Crestline Systems</b><span>HDBaseT demo, bring eval unit</span></div><span class="badge cus">Customer</span></div>
-                <div class="pitem"><span class="ptime">1:30</span><div class="pbody"><b>Training · WCO branch #214</b><span>LCO AV line card refresh for 6 sellers</span></div><span class="badge cool">Seller</span></div>
+                <div class="pitem"><span class="ptime">1:30</span><div class="pbody"><b>Training · K. Whitfield</b><span>WCO branch #214 · LCO AV line card refresh, 6 sellers</span></div><span class="badge cool">Seller</span></div>
                 <div class="pitem"><span class="ptime">3:00</span><div class="pbody"><b>Call · Summit Pro Audio</b><span>Confirm converted order, schedule reorder</span></div><span class="badge cus">Customer</span></div>
               </div>
             </div>
           </div>
-          <div class="panel" style="margin:0">
+          <div class="panel" id="myday-opps" style="margin:0">
             <div class="head"><h3>My opportunities</h3><button onclick="go('sales-myopps')" style="border:0;background:none;font-size:11.5px;font-weight:600;color:var(--copper-d);cursor:pointer">View all in My Opportunities →</button></div>
             <div class="body" style="padding:0">
               <table>
@@ -1362,30 +1362,45 @@
 
   // ---------- guided walk-through ----------
   const TOUR=[
-    {persona:'lead',view:'lead-overview',sel:null,
-      title:'How Owned Brands helps sellers close opportunities and increase margin',
-      body:'A short tour of the Engine. A low-margin opportunity is identified. Its target SKUs are crossed to owned-brand equivalents. The OB sales team engages the WCO seller. Opportunities, wins, and losses are recorded and measured over time. Sample data throughout.'},
-    {persona:'sales',view:'sales-crossopps',sel:'#sales-crossopps .calib',
-      title:'Identify: who to call today',
-      body:'The WCO sellers holding open competitor quotes that cross to an owned brand, calibrated by saved filters: brand, SKU, margin target, territory. The open-quote signal is a target dataset, not yet secured; margin and sales read from governed WCO data. This runs the standing query the team used to work by hand.'},
-    {persona:'sales',view:'sales-crossopps',sel:'#co-tbody tr .co-act .btn',
-      title:'Claim it, so it cannot leak',
-      body:'Selecting a target turns a surfaced lead into an owned opportunity and moves it to My Opportunities. Every opportunity is captured the moment it is found.'},
+    {persona:'sales',view:'sales-day',sel:null,
+      title:'Built in two phases',
+      body:'What follows is the end state, built in order. Phase one, the priority, is the cross engine and sales enablement: cross competitor parts to owned brands and work the opportunities. Phase two is what that data unlocks for the Owned Brands product team: the demand signals captured here drive higher inventory turns and lower inventory liability.'},
+    {persona:'sales',view:'sales-day',sel:'#myday-plan',
+      title:'Your day: who to engage',
+      body:'The Owned Brands rep starts here. Today\'s plan is a mix of WCO sellers and WCO customers set for the rep to engage, the people who move owned-brand product.'},
+    {persona:'sales',view:'sales-day',sel:'#myday-opps',
+      title:'A glance at what is open',
+      body:'A quick read of the WCO sellers who already have a quote in the rep\'s territory and need a follow-up. Sellers and customers, side by side.'},
+    {persona:'sales',view:'sales-crossopps',sel:'#co-tbody tr:first-child',
+      title:'Find a target: D. Hargrove',
+      body:'A WCO seller with an open quote on a product that crosses to an owned brand. The list here is filtered to margins under 12 percent, just one example of how the rep calibrates it, not a fixed rule. Clicking Select moves the seller to My Opportunities.'},
     {persona:'sales',view:'sales-myopps',sel:'#sales-myopps table',
-      title:'Engage: work it, traced to its source',
-      body:'Claimed opportunities collect here, filterable by where they came from: Target Sellers, Cross reference, an emailed-in note, or logged by hand. Calls, visits, and demos get logged against each.'},
+      title:'My Opportunities: the full list',
+      body:'The deep dive behind that My-day glance. Every claimed opportunity, by WCO seller, with stage, value, and margin lift, so nothing outstanding gets dropped.'},
     {persona:'sales',view:'sales-cross',sel:'#xlist .xrow:first-child',
-      title:'Cross reference: the living dictionary',
-      body:'Competitor part in, the owned-brand equivalent and its margin out. One searchable database behind every margin-lift number, kept current automatically.'},
-    {persona:'lead',view:'lead-conversion',sel:'#lead-conversion .leak',
-      title:'Leadership sees the whole pool',
-      body:'How big the surfaced pool is, how much is claimed and working, and what is still unclaimed and at risk of leaking. The capture step the manual process never had.'},
-    {persona:'lead',view:'lead-overview',sel:'#lead-overview .loop',
-      title:'Measured from first signal to won margin',
-      body:'Identified competitor spend, crossed to an owned brand, in progress, then converted. Leadership watches value move end to end.'},
+      title:'Cross reference: the heart of it',
+      body:'Competitor part in, the owned-brand equivalent and its margin out. This is how the team serves WCO sellers fast, helping them win the deal and lift margin at the same time.'},
+    {persona:'sales',view:'sales-hardware',sel:'#sales-hardware table',
+      title:'Hardware demos in the field',
+      body:'Eval and loaner units out with WCO sellers and customers: who has what, and when it is due back, so demos turn into orders and nothing is lost.'},
     {persona:'lead',view:'lead-overview',sel:null,
-      title:'That is the Engine',
-      body:'This is a wireframe on sample data: the intended experience, not a built product. The real version runs locally, with nothing leaving the tenant.'},
+      title:'The leadership view',
+      body:'A roll-up of what the sales team is doing, and the impact of that activity on product and pipeline. It is the insight engine for the Owned Brands product team: better inventory decisions, less inventory liability, and a real view of turns.'},
+    {persona:'lead',view:'lead-overview',sel:'#lead-overview .kpis',
+      title:'The numbers at a glance',
+      body:'Revenue, blended margin, open pipeline, conversion in play, and engagements. The state of the owned-brand business in one strip.'},
+    {persona:'lead',view:'lead-overview',sel:'#lead-overview .loop',
+      title:'Value conversion flow',
+      body:'Where competitor spend moves to won margin, stage by stage. Reading the flow shows what is working, so the team can iterate and convert more of it.'},
+    {persona:'lead',view:'lead-overview',sel:'#lead-pipeline',
+      title:'Pipeline by brand',
+      body:'Which owned brands are being crossed across the book, rolled up so leadership can see where the volume is going.'},
+    {persona:'lead',view:'lead-inventory',sel:'#invhub',
+      title:'Inventory and demand: the other heart',
+      body:'A quick inventory look across WCO, and the part that matters most: demand against that inventory, fed by the open quotes and crosses the sales team is working. This is the second-phase payoff the Owned Brands team cares about, higher inventory turns and lower inventory liability, by buying to real field demand instead of history alone.'},
+    {persona:'lead',view:'lead-overview',sel:null,
+      title:'First the engine, then the inventory payoff',
+      body:'The priority is the cross engine and sales enablement, where the deals and margin come from. The demand signals it captures then drive the outcome the Owned Brands team cares about most: higher inventory turns and lower inventory liability, because we buy to live field demand, not history alone. This is a wireframe on sample data, the intended experience, not a built product, running locally with nothing leaving the tenant.'},
   ];
   let tStep=0;
   const tEl=id=>document.getElementById(id);
@@ -1439,8 +1454,9 @@
   addEventListener('keydown',e=>{if(!document.body.classList.contains('tour-on'))return;
     if(e.key==='Escape')tourEnd();else if(e.key==='ArrowRight'||e.key===' ')tourNext();else if(e.key==='ArrowLeft')tourPrev();});
   addEventListener('resize',()=>{if(document.body.classList.contains('tour-on'))tourPlace();});
+  // auto-launch the guided walk-through on every visit; ?tour=N jumps to a step
   (function(){const m=location.search.match(/tour=(\d+)?/);
-    if(m) setTimeout(()=>{tourStart();if(m[1])tourShow(+m[1]-1);},450);})();
+    setTimeout(()=>{tourStart();if(m&&m[1])tourShow(+m[1]-1);},450);})();
 </script>
 </body>
 </html>

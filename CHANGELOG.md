@@ -36,6 +36,12 @@ All notable changes to this project are documented here. Format follows
   hardware / budget request.
 
 ### Changed
+- Rebuilt the guided walk-through (`Project planning/index.html`) as a 13-step,
+  sales-first tour (My day, Target Sellers, My Opportunities, Cross reference,
+  Hardware demos, then the leadership roll-up), framed as a two-phase build whose
+  second-phase payoff is higher inventory turns and lower inventory liability.
+  Renamed the overview "Conversion value loop" panel to "Value conversion flow".
+  The walk-through now auto-launches on every visit.
 - Renamed the Sales "Cross lookup" view to "Cross reference" (the part-to-part
   reference dictionary); the new worklist is "Target Sellers" (its rows are the WCO
   sellers the OB team calls, not the end-customer companies), paired with "My

@@ -37,8 +37,15 @@ __pycache__/
 Board pitch/_present/
 Board pitch/build_realnames.sh
 
+# Local-only decision memo: contains real names and dollar figures. NEVER commit.
+# Anonymize the source before any of these may be tracked.
+Board pitch/Owned_Brands_Decision_Memo*.docx
+Board pitch/Owned_Brands_Decision_Memo*.pdf
+Board pitch/build_memo.js
+
 # QA scratch from doc rendering (regenerated on demand)
 Board pitch/*.jpg
 Board pitch/tour-*.png
 Board pitch/raw/
 Board pitch/unpacked/
+Board pitch/unpacked*/
